@@ -23,11 +23,11 @@ const navItems = [
 const Sidebar = () => {
     return <>
         <aside className="sidebar w-16 h-screen flex flex-col text-white">
-            <header className="sidebar-header flex items-center justify-center mt-4">
+            <div className="sidebar-header flex items-center justify-center mt-4">
                 <img src={logo}
                     alt='Company Logo'
                 />
-            </header>
+            </div>
 
             <nav className="sidebar-nav flex-1 flex items-center justify-center" aria-label="Main navigation">
                 <ul>

@@ -5,14 +5,16 @@ import Sidebar from "./components/sidebar/Sidebar"
 function App() {
   return (
     <>
-      {/* <div className="p-10">
-        <h1 className="text-3xl font-bold text-blue-500">Tailwind is working!</h1>
-        <div className="w-20 h-20 bg-blue-500"></div>
-      </div> */}
-
-
-      {/* <Sidebar/> */}
-      <Header />
+      <div className="flex h-screen w-screen overflow-hidden">
+        <aside className="w-16 bg-gray-800 text-white flex-shrink-0 z-20 relative">
+          <Sidebar />
+        </aside>
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <header className="h-16 bg-white text-black flex items-center px-4 flex-shrink-0 z-10 relative">
+            <Header />
+          </header>
+        </div>
+      </div>
     </>
   )
 }
