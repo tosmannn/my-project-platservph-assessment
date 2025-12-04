@@ -26,7 +26,6 @@ const Sidebar = () => {
             <header className="sidebar-header flex items-center justify-center mt-4">
                 <img src={logo}
                     alt='Company Logo'
-                    className='sidebr-logo'
                 />
             </header>
 
@@ -38,7 +37,7 @@ const Sidebar = () => {
                                 <img
                                     src={icon}
                                     alt={`${label} Icon`}
-                                    className="logo-img filter invert mt-2 w-5 h-5"
+                                    className="filter invert mt-2 w-5 h-5"
                                 />
                                 <span className="text-sm">{label}</span>
                             </a>
@@ -47,12 +46,12 @@ const Sidebar = () => {
                 </ul>
             </nav>
 
-            <footer className="sidebar-footer flex flex-col items-center justify-center mb-4">
+            <footer className="flex flex-col items-center justify-center mb-4">
                 <a href="/settings" className="flex flex-col items-center justify-center">
                     <img
                         src={setting}
                         alt="Settings Icon"
-                        className="logo-img filter invert w-5 h-5 mb-1"
+                        className="filter invert w-5 h-5 mb-1"
                     />
                     <span className="text-sm">Settings</span>
                 </a>
