@@ -1,7 +1,8 @@
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import downArrow from "../../../assets/header/down-arrow.png"
 import upArrow from "../../../assets/header/up-arrow.png"
+import magnifying from "../../../assets/header/magnifying.png"
 
 const organizations = [
     { initials: "AL", name: "Adhesif Labels Ltd" },
@@ -14,18 +15,29 @@ const organizations = [
 const HeaderDropdown = () => {
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState("");
-
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const filteredOrgs = organizations.filter(org =>
         org.name.toLowerCase().includes(search.toLowerCase())
     );
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    
     return (
-        <div className="relative inline-block text-left w-64">
+        <div ref={dropdownRef} className="relative inline-block text-left w-64">
             <button
                 onClick={() => setOpen(!open)}
                 className="w-full px-4 py-2 bg-white text-black rounded-md shadow flex justify-between items-center"
             >
-                Swathy Corp 2
+                ABC Group Ltd
 
                 <img
                     src={open ? upArrow : downArrow}
@@ -42,14 +54,19 @@ const HeaderDropdown = () => {
                         <a href="#" className="block text-sm text-gray-700 hover:text-blue-600">Privacy Policy</a>
                     </div>
 
-                    <div className="px-4 py-2 border-b">
+                    <div className="px-4 py-2 border-b bg-gray-100">
                         <input
                             type="text"
                             placeholder="Type to filter..."
                             value={search}
                             onChange={e => setSearch(e.target.value)}
-                            className="w-full px-2 py-1 border rounded text-sm"
+                            className="w-full px-2 py-1 border rounded text-sm bg-white"
                         />
+
+                        <img
+                            src={magnifying}
+                            alt="search"
+                            className="absolute right-6 top-1/3 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                     </div>
 
                     <ul className="max-h-60 overflow-y-auto px-2 py-2">

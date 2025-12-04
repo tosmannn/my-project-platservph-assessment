@@ -4,6 +4,7 @@ import intersection from "../../assets/header/intersection.png"
 import magnifying from "../../assets/header/magnifying.png"
 import notification from "../../assets/header/notification.png"
 import question from "../../assets/header/question.png"
+import HeaderAccount from "./header-account/HeaderAccount";
 
 const Header = () => {
     return <>
@@ -31,11 +32,7 @@ const Header = () => {
                 <div className="bg-gray-100 rounded-full p-2">
                     <img src={question} alt="Help" className="w-5 h-5 cursor-pointer" />
                 </div>
-                <div>
-                    <button className="bg-blue-600 text-white text-sm font-bold px-2.5 py-2 rounded-md">
-                        JA
-                    </button>
-                </div>
+                <HeaderAccount/>
             </div>
         </header>
     </>
