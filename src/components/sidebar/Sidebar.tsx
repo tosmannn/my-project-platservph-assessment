@@ -47,7 +47,7 @@ const Sidebar = () => {
             </nav>
 
             <footer className="flex flex-col items-center justify-center mb-4">
-                <a href="/settings" className="flex flex-col items-center justify-center">
+                <a href="/settings/integrations" className="flex flex-col items-center justify-center">
                     <img
                         src={setting}
                         alt="Settings Icon"
