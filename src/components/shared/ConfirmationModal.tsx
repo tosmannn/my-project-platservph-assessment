@@ -43,11 +43,18 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
                         ? `Remove “${connectionName}” Connection?`
                         : `Change to Existing Connection`}
                 </h2>
-                <p className="text-sm text-gray-600 mb-6">
-                    {isDelete
-                        ? `Are you sure you want to remove ${integrationName} “${connectionName}” connection?`
-                        : `Changes may disrupt functionality and impact data flow. Are you sure you want to make changes to ${integrationName} “${connectionName}” connection?`}
-                </p>
+                {isDelete ? (
+                    <p className="text-sm text-gray-600 mb-6">
+                        Are you sure you want to remove {integrationName} “{connectionName}” connection?
+                    </p>
+                ) : (
+                    <div className="text-sm text-gray-600 mb-6">
+                        <p>Changes may disrupt functionality and impact data flow.</p>
+                        <p>
+                            Are you sure you want to make changes to {integrationName} “{connectionName}” connection?
+                        </p>
+                    </div>
+                )}
 
                 <div className="flex justify-center gap-4">
                     <button
