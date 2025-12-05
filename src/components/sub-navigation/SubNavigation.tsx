@@ -62,7 +62,7 @@ const subNavItems: SubNavSection[] = [
 
 const SubNavigation = () => {
     return <>
-        <div className="space-y-6 text-sm text-black">
+        <div className="space-y-6 text-sm text-black w-67">
             {subNavItems.map((section) => (
                 <div key={section.label}>
 

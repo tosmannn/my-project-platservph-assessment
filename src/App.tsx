@@ -1,6 +1,7 @@
 import Header from "./components/header/Header"
 import Sidebar from "./components/sidebar/Sidebar"
 import SubNavigation from "./components/sub-navigation/SubNavigation"
+import IntegrationPage from "./pages/integration/IntegrationPage"
 
 
 function App() {
@@ -19,8 +20,7 @@ function App() {
           <main className="flex-1 overflow-auto p-4 bg-gray-50">
             <div className="flex">
               <SubNavigation />
-              <h1 className="text-2xl font-bold">Main Page</h1>
-             
+              <IntegrationPage />
             </div>
           </main>
         </div>
