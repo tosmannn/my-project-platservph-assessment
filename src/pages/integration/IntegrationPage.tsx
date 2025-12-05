@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../components/shared/Card";
 import SearchBar from "./component/search-bar/SearchBar";
 import Table from "./component/table/Table";
@@ -18,14 +18,21 @@ const IntegrationPage = () => {
             c.integration.toLowerCase().includes(search.toLowerCase()) ||
             c.name.toLowerCase().includes(search.toLowerCase())
     );
-
     const rowsPerPage = 8;
     const totalPages = Math.ceil(filteredConnections.length / rowsPerPage);
+
+    useEffect(() => {
+        if (currentPage > totalPages) {
+            setCurrentPage(totalPages || 1);
+        }
+    }, [filteredConnections]);
+
 
     const paginatedData = filteredConnections.slice(
         (currentPage - 1) * rowsPerPage,
         currentPage * rowsPerPage
     );
+
     return <>
         <div className="ml-10">
             <div className="mb-5">
